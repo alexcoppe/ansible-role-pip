@@ -1,2 +1,3 @@
 ---
 # defaults file for ansible-role-pip
+working_directory: /tmp

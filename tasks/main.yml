@@ -6,10 +6,14 @@
   ignore_errors: yes
 
 - name: Download get-pip.py
-  get_url: url=https://bootstrap.pypa.io/get-pip.py dest=~
+  get_url: url=https://bootstrap.pypa.io/get-pip.py dest={{working_directory}}
   when: which_pip.rc == 1
 
 - name: Run get-pip.py
-  command: python get-pip.py
+  command: python {{working_directory}}/get-pip.py
   sudo: yes
+  when: which_pip.rc == 1
+
+- name: Remove get-pip.py
+  file: path={{working_directory}}/get-pip.py state=absent
   when: which_pip.rc == 1
