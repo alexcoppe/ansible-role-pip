@@ -1,0 +1,15 @@
+---
+# tasks file for ansible-role-pip
+- name: Chek if pip is installed
+  command: "which pip"
+  register: which_pip
+  ignore_errors: yes
+
+- name: Download get-pip.py
+  get_url: url=https://bootstrap.pypa.io/get-pip.py dest=~
+  when: which_pip.rc == 1
+
+- name: Run get-pip.py
+  command: python get-pip.py
+  sudo: yes
+  when: which_pip.rc == 1
