@@ -3,7 +3,7 @@ galaxy_info:
   author: Alessandro Coppe
   description: An ansible role for pip installation
   license: WTFPL
-  min_ansible_version: 1.2
+  min_ansible_version: 1.9
   platforms:
   - name: EL
     versions:
