@@ -1,6 +1,8 @@
 ---
 # tasks file for ansible-role-pip
 - name: Chek if pip is installed
+  changed_when: false
+  failed_when: false
   command: "which pip"
   register: which_pip
   ignore_errors: yes
